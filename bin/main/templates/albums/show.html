@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<div th:replace="parts/parts.html :: head"></div>
+<br />
+<body>
+	<div th:replace="parts/parts.html :: header"></div>
+	<br />
+	<div th:replace="parts/parts.html :: nav"></div>
+	<br />
+	<main>
+		<h2>Szczegółowe dane albumu</h2>
+        <form th:action="@{/albums/save}" th:object="${album}" method="post">
+            <table>
+                <tr>
+					<td>ID albumu:</td>
+					<td><input type="number" th:field="*{id}" readonly="readonly" /></td>
+				</tr>
+                <tr>
+                    <td>Nazwa albumu: </td>
+                    <td> <input type="text" th:field="*{name}" readonly="readonly"> </td>
+                </tr>
+                <!--
+                <tr>
+                    <td> <img th:src="'/images/'+*{coverimage}" /> </td>
+                </tr>
+                -->
+                <tr>
+                    <td>Rok wydania</td>
+                    <td> <input type="number" th:field="*{publishingyear}" readonly="readonly" /></td>
+                </tr>
+            </table>
+            <!--
+                <button type="submit">Zapisz</button>
+            <button type="reset">Wyczyść</button>
+            -->            
+        </form>
+	</main>
+	<div th:replace="parts/parts.html :: footer"></div>
+	<br />
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<div th:replace="parts/parts.html :: head"></div>
+<br />
+<body>
+	<div th:replace="parts/parts.html :: header"></div>
+	<br />
+	<div th:replace="parts/parts.html :: nav"></div>
+	<br />
+	<main>
+		<h2>Szczegółowe dane artysty</h2>
+		<br>
+		<form action="#" th:action="@{/artists/save}" th:object="${artist}"
+			method="post">
+			<table>
+				<tr>
+					<td>ID artysty:</td>
+					<td><input type="number" th:field="*{id}" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td>Nazwa wykonawcy:</td>
+					<td><input type="text" th:field="*{name}" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td>Opis wykonawcy:</td>
+					<td><textarea th:field="*{description}" readonly="readonly"></textarea></td>
+				</tr>
+				<tr >
+					<td>Typ wykonawcy</td>
+					<td><select th:field="*{type}" disabled="disabled">
+							<option value="solo">Artysta solowy</option>
+							<option value="band">Zespół</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Oficjalna strona wykonawcy:</td>
+					<td><input type="url" th:field="*{ofc_website}" readonly="readonly"/></td>
+				</tr>
+			</table>
+			<!--<button type="submit">Zapisz</button>-->
+		</form>
+	</main>
+	<div th:replace="parts/parts.html :: footer"></div>
+	<br />
+</body>
+</html>

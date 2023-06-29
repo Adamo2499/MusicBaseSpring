@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<div th:replace="parts/parts.html :: head"></div><br />
+<body>
+		<header th:replace="parts/parts.html :: header"></header><br />
+		<nav th:replace="parts/parts.html :: nav" ></nav><br />
+		<main>
+		<h2>Lista artystów</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nazwa</th>
+					<th>Opis</th>
+					<th>Typ</th>
+					<th>Oficjalna strona</th>
+					<th>Edytuj </th>
+					<th>Usuń</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="art: ${artists}">
+					<td th:text="${art.id}">ID</td>
+					<td th:text="${art.name}">Nazwa</td>
+					<td th:text="${art.description}">Opis</td>
+					<td th:text="${art.type == 'solo'} ? 'Artysta solowy' : 'Zespół'">Typ</td>
+					<td> <a th:href="${art.ofc_website}" th:text="${art.ofc_website}" target="_blank"></a></td>
+					<td> <a th:href="@{'/MusicBase/artists/edit/' + ${art.id}}">Edytuj</a></td>
+					<td> <a th:href="@{'/MusicBase/artists/delete/' + ${art.id}}">Usuń</a></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td colspan="7">
+						<a href="/">Powrót na stronę główną</a><br>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</main>
+		<footer th:replace="parts/parts.html :: footer"></footer><br />
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+	<div th:replace="parts/parts.html :: head"></div><br />
+	<body>
+		<div th:replace="parts/parts.html :: header"></div><br />
+		<div th:replace="parts/parts.html :: nav"></div><br />
+		<main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Okładka albumu</th>
+                        <th>Rok wydania</th>
+                        <th>Edytuj</th>
+                        <th>Usuń</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="album: ${albums}">
+                        <td th:text="${album.name}">Nazwa</td>
+                        <td><img th:src="'/images/'+${album.coverimage}" th:alt="'Zdjęcie albumu '+${album.name}"> </td>
+                        <td th:text="${album.publishingyear}"></td>
+                        <td> <a th:href="@{'/MusicBase/albums/edit/' + ${album.id}}">Edytuj</a></td>
+						<td> <a th:href="@{'/MusicBase/albums/delete/' + ${album.id}}">Usuń</a></td>
+                    </tr>
+                </tbody>
+            </table>
+		</main>
+		<div th:replace="parts/parts.html :: footer"></div><br />
+	</body>
+</html>

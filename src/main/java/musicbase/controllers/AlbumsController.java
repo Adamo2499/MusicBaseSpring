@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import musicbase.models.Albums;
+import musicbase.models.Album;
 import musicbase.services.AlbumsService;
 
 @Controller
@@ -27,20 +27,20 @@ public class AlbumsController {
 
 	@RequestMapping("/albums/list")
 	public String viewalbumsList(Model model) {
-		List<Albums> lalbums = service.findAll();
+		List<Album> lalbums = service.findAll();
 		model.addAttribute("albums", lalbums);
 		return "/albums/list";
 	}
 
 	@RequestMapping("/albums/new")
 	public String showFormNewAlbums(Model model) {
-		Albums newAlbum = new Albums();
+		Album newAlbum = new Album();
 		model.addAttribute("album", newAlbum);
 		return "/albums/new";
 	}
 
 	@PostMapping(value = "/albums/save")
-	public String saveAlbums(@ModelAttribute("albums") Albums Album) {
+	public String saveAlbums(@ModelAttribute("albums") Album Album) {
 		Album.setCoverimage(Album.getName().toLowerCase()+".jpg");
 		service.save(Album);
 		return "redirect:/albums/list";
@@ -49,7 +49,7 @@ public class AlbumsController {
 	@RequestMapping("/albums/edit/{id}")
 	public ModelAndView showEditFormAlbums(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("/albums/edit");
-		Optional<Albums> eAlbum = service.findById(id);
+		Optional<Album> eAlbum = service.findById(id);
 		mav.addObject("album", eAlbum);
 		return mav;
 	}
@@ -57,7 +57,7 @@ public class AlbumsController {
 	@RequestMapping("/albums/show/{id}")
 	public ModelAndView showAlbumDetails(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("/albums/show");
-		Optional<Albums> showAlbum = service.findById(id);
+		Optional<Album> showAlbum = service.findById(id);
 		mav.addObject("album",showAlbum);
 		return mav;
 	}

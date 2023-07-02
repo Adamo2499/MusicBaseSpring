@@ -18,10 +18,15 @@
                 <tbody>
                     <tr th:each="album: ${albums}">
                         <td th:text="${album.name}">Nazwa</td>
-                        <td><img th:src="'/images/'+${album.coverimage}" th:alt="'Zdjęcie albumu '+${album.name}"> </td>
+                        <td> <img th:src="'/images/'+${album.coverimage}" th:alt="'Zdjęcie albumu '+${album.name}"> </td>
                         <td th:text="${album.publishingyear}"></td>
                         <td> <a th:href="@{'/MusicBase/albums/edit/' + ${album.id}}">Edytuj</a></td>
 						<td> <a th:href="@{'/MusicBase/albums/delete/' + ${album.id}}">Usuń</a></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="5">
+                    		<a href="/">Powrót na stronę główną</a>
+                    	</td>
                     </tr>
                 </tbody>
             </table>

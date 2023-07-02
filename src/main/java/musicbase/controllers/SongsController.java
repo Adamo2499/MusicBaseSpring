@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import musicbase.models.Songs;
+import musicbase.models.Song;
 import musicbase.services.SongsService;
 
 @Controller
@@ -27,20 +27,20 @@ public class SongsController {
 
 	@GetMapping("/songs/list")
 	public String viewSongsList(Model model) {
-		List<Songs> songsList = service.findAll();
+		List<Song> songsList = service.findAll();
 		model.addAttribute("songs", songsList);
 		return "/songs/list";
 	}
 
 	@GetMapping("/songs/new")
 	public String showFormNewSongs(Model model) {
-		Songs newSong = new Songs();
+		Song newSong = new Song();
 		model.addAttribute("song", newSong);
 		return "/songs/new";
 	}
 
 	@PostMapping(value = "/songs/save")
-	public String saveSongs(@ModelAttribute("Songs") Songs Songs) {
+	public String saveSongs(@ModelAttribute("Songs") Song Songs) {
 		service.save(Songs);
 		return "redirect:/songs/list";
 	}
@@ -48,7 +48,7 @@ public class SongsController {
 	@GetMapping("/songs/edit/{id}")
 	public ModelAndView showEditFormSongs(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("/songs/edit");
-		Optional<Songs> songToEdit = service.findById(id);
+		Optional<Song> songToEdit = service.findById(id);
 		mav.addObject("song", songToEdit);
 		return mav;
 	}

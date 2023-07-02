@@ -4,12 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
-public class Albums {
+@Table(name="albums", schema="musicbase")
+public class Album {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -19,12 +21,12 @@ public class Albums {
 	private String name;
 
 	@Pattern(regexp = "^.*\\.(jpg|JPG|png|PNG)$", message = "Plik musi być w formacie jpg lub png")
-	private String coverimage;
+	private String cover_image;
 
 	@NotNull
-	private Integer publishingyear;
+	private Integer publishing_year;
 
-	public Albums() {
+	public Album() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -46,19 +48,19 @@ public class Albums {
 	}
 
 	public String getCoverimage() {
-		return coverimage;
+		return cover_image;
 	}
 
 	public void setCoverimage(String coverimage) {
-		this.coverimage = coverimage;
+		this.cover_image = coverimage;
 	}
 
 	public Integer getPublishingyear() {
-		return publishingyear;
+		return publishing_year;
 	}
 
 	public void setPublishingyear(Integer publishingyear) {
-		this.publishingyear = publishingyear;
+		this.publishing_year = publishingyear;
 	}
 
 }

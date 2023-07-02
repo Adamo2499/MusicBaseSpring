@@ -2,8 +2,8 @@ package musicbase.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import musicbase.models.Songs;
+import musicbase.models.Song;
 
-public interface SongsRepository extends JpaRepository<Songs, Long> {
+public interface SongsRepository extends JpaRepository<Song, Long> {
 
 }

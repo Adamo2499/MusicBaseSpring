@@ -15,7 +15,7 @@
 					<th>Usuń</th>
 				</thead>
 				<tbody>
-						<tr th:each="song: ${songs}">
+					<tr th:each="song: ${songs}">
 						<td th:text="${song.title}"> </td>
 						<td> <a th:href="${'/MusicBase/artists/show/'+song.performer}"><span th:text="${song.performer}"></span></a> </td>
 						<td> <a th:href="${'/MusicBase/albums/show/'+song.albumid}"><span th:text="${song.albumid}"></span></a> </td>
@@ -23,8 +23,12 @@
 						<td> <a th:href="${'/MusicBase/songs/edit/'+song.albumid}">Edytuj</a> </td>
 						<td> <a th:href="${'/MusicBase/songs/delete/'+song.albumid}">Usuń</a> </td>
 					</tr>
+					<tr>
+                    	<td colspan="6">
+                    		<a href="/">Powrót na stronę główną</a>
+                    	</td>
+                    </tr>
 				</tbody>
-
 			</table>
 		</main>
 		<div th:replace="parts/parts.html :: footer"></div><br />

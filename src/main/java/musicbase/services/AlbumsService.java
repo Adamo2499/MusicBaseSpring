@@ -11,23 +11,24 @@ import musicbase.repositories.AlbumsRepository;
 
 @Service
 public class AlbumsService {
+	
 	@Autowired
-	public AlbumsRepository repository;
+	private AlbumsRepository albumsRepository;
 
 	public <S extends Albums> S save(S entity) {
-		return repository.save(entity);
+		return albumsRepository.save(entity);
 	}
 
 	public List<Albums> findAll() {
-		return repository.findAll();
+		return albumsRepository.findAll();
 	}
 
 	public Optional<Albums> findById(Long id) {
-		return repository.findById(id);
+		return albumsRepository.findById(id);
 	}
 
 	public void deleteById(Long id) {
-		repository.deleteById(id);
+		albumsRepository.deleteById(id);
 	}
 	
 	

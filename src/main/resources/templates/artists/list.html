@@ -25,8 +25,8 @@
 					<td th:text="${art.description}">Opis</td>
 					<td th:text="${art.type == 'solo'} ? 'Artysta solowy' : 'Zespół'">Typ</td>
 					<td> <a th:href="${art.ofc_website}" th:text="${art.ofc_website}" target="_blank"></a></td>
-					<td> <a th:href="@{'/MusicBase/artists/edit/' + ${art.id}}">Edytuj</a></td>
-					<td> <a th:href="@{'/MusicBase/artists/delete/' + ${art.id}}">Usuń</a></td>
+					<td> <a th:href="@{'/artists/edit/' + ${art.id}}">Edytuj</a></td>
+					<td> <a th:href="@{'/artists/delete/' + ${art.id}}">Usuń</a></td>
 				</tr>
 				<tr></tr>
 				<tr>

@@ -17,11 +17,11 @@
 				<tbody>
 					<tr th:each="song: ${songs}">
 						<td th:text="${song.title}"> </td>
-						<td> <a th:href="${'/MusicBase/artists/show/'+song.performer}"><span th:text="${song.performer}"></span></a> </td>
-						<td> <a th:href="${'/MusicBase/albums/show/'+song.albumid}"><span th:text="${song.albumid}"></span></a> </td>
+						<td> <a th:href="${'/artists/show/'+song.performer}"><span th:text="${song.performer}"></span></a> </td>
+						<td> <a th:href="${'/albums/show/'+song.albumid}"><span th:text="${song.albumid}"></span></a> </td>
 						<td th:text="${song.duration}"> </td>
-						<td> <a th:href="${'/MusicBase/songs/edit/'+song.albumid}">Edytuj</a> </td>
-						<td> <a th:href="${'/MusicBase/songs/delete/'+song.albumid}">Usuń</a> </td>
+						<td> <a th:href="${'/songs/edit/'+song.albumid}">Edytuj</a> </td>
+						<td> <a th:href="${'/songs/delete/'+song.albumid}">Usuń</a> </td>
 					</tr>
 					<tr>
                     	<td colspan="6">

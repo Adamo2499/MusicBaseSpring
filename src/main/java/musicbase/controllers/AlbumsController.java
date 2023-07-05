@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,14 +27,14 @@ public class AlbumsController {
 		super();
 	}
 
-	@RequestMapping("/albums/list")
-	public String viewalbumsList(Model model) {
+	@GetMapping("/albums/list")
+	public String viewAlbumsList(Model model) {
 		List<Album> lalbums = service.findAll();
 		model.addAttribute("albums", lalbums);
 		return "/albums/list";
 	}
 
-	@RequestMapping("/albums/new")
+	@GetMapping("/albums/new")
 	public String showFormNewAlbums(Model model) {
 		Album newAlbum = new Album();
 		model.addAttribute("album", newAlbum);
@@ -46,7 +48,7 @@ public class AlbumsController {
 		return "redirect:/albums/list";
 	}
 
-	@RequestMapping("/albums/edit/{id}")
+	@GetMapping("/albums/edit/{id}")
 	public ModelAndView showEditFormAlbums(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("/albums/edit");
 		Optional<Album> eAlbum = service.findById(id);
@@ -54,18 +56,26 @@ public class AlbumsController {
 		return mav;
 	}
 
-	@RequestMapping("/albums/show/{id}")
-	public ModelAndView showAlbumDetails(@PathVariable(name = "id") Long id) {
+	@GetMapping("/albums/show/{id}")
+	public ModelAndView showAlbum(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("/albums/show");
 		Optional<Album> showAlbum = service.findById(id);
 		mav.addObject("album",showAlbum);
 		return mav;
 	}
-
-
-	@RequestMapping("/albums/delete/{id}")
-	public String deleteAlbums(@PathVariable(name = "id") Long id) {
-		service.deleteById(id);
-		return "redirect:/albums/list";
+	
+	@GetMapping("/albums/details/{id}")
+	public ModelAndView showAlbumDetails(@PathVariable(name = "id") Long id) {
+		ModelAndView mav = new ModelAndView("/albums/details");
+		Optional<Album> showAlbum = service.findById(id);
+		mav.addObject("album",showAlbum);
+		return mav;
 	}
+
+	@DeleteMapping("/albums/delete/{id}")
+	public String deleteAlbums(@PathVariable(name = "id") Long id) {
+	    service.deleteById(id);
+	    return "redirect:/albums/list";
+	}
+
 }

@@ -31,6 +31,22 @@ public class Album {
 		// TODO Auto-generated constructor stub
 	}
 
+	public String getCover_image() {
+		return cover_image;
+	}
+
+	public void setCover_image(String cover_image) {
+		this.cover_image = cover_image;
+	}
+
+	public Integer getPublishing_year() {
+		return publishing_year;
+	}
+
+	public void setPublishing_year(Integer publishing_year) {
+		this.publishing_year = publishing_year;
+	}
+
 	public Long getId() {
 		return id;
 	}

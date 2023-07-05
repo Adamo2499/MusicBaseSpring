@@ -67,5 +67,18 @@ public class Artist {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Artist(Long id,
+			@NotNull @Size(min = 3, message = "Nazwa artysty musi się składać z minium 3 znaków") String name,
+			@Size(min = 3, message = "Opis artysty musi się składać z minium 3 znaków") String description,
+			@URL String ofc_website, @NotNull String type) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.ofc_website = ofc_website;
+		this.type = type;
+	}
+	
+	
 	
 }

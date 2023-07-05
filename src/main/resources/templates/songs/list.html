@@ -17,19 +17,15 @@
 				<tbody>
 					<tr th:each="song: ${songs}">
 						<td th:text="${song.title}"> </td>
-						<td> <a th:href="${'/artists/show/'+song.performer}"><span th:text="${song.performer}"></span></a> </td>
-						<td> <a th:href="${'/albums/show/'+song.albumid}"><span th:text="${song.albumid}"></span></a> </td>
+						<td> <a th:href="${'/artists/details/'+song.performer}"><span th:text="${song.performer.name}"></span></a> </td>
+						<td> <a th:href="${'/albums/details/'+song.album}"><span th:text="${song.album.name}"></span></a> </td>
 						<td th:text="${song.duration}"> </td>
-						<td> <a th:href="${'/songs/edit/'+song.albumid}">Edytuj</a> </td>
-						<td> <a th:href="${'/songs/delete/'+song.albumid}">Usuń</a> </td>
+						<td> <a th:href="${'/songs/edit/'+song.album}">Edytuj</a> </td>
+						<td> <a th:href="${'/songs/show/'+song.album}">Usuń</a> </td>
 					</tr>
-					<tr>
-                    	<td colspan="6">
-                    		<a href="/">Powrót na stronę główną</a>
-                    	</td>
-                    </tr>
 				</tbody>
 			</table>
+			<a href="/"><button class="return">Powrót na stronę główną</button></a>
 		</main>
 		<div th:replace="parts/parts.html :: footer"></div><br />
 	</body>

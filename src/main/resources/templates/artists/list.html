@@ -26,16 +26,11 @@
 					<td th:text="${art.type == 'solo'} ? 'Artysta solowy' : 'Zespół'">Typ</td>
 					<td> <a th:href="${art.ofc_website}" th:text="${art.ofc_website}" target="_blank"></a></td>
 					<td> <a th:href="@{'/artists/edit/' + ${art.id}}">Edytuj</a></td>
-					<td> <a th:href="@{'/artists/delete/' + ${art.id}}">Usuń</a></td>
-				</tr>
-				<tr></tr>
-				<tr>
-					<td colspan="7">
-						<a href="/">Powrót na stronę główną</a><br>
-					</td>
+					<td> <a th:href="@{'/artists/show/' + ${art.id}}">Usuń</a></td>
 				</tr>
 			</tbody>
 		</table>
+		<a href="/"><button class="return">Powrót na stronę główną</button></a>
 		</main>
 		<footer th:replace="parts/parts.html :: footer"></footer><br />
 </body>

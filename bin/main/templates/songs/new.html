@@ -8,7 +8,7 @@
 	<div th:replace="parts/parts.html :: nav"></div>
 	<br />
 	<main>
-		<h2>Edytuj dane artysty</h2>
+	<h2>Dodaj dane piosenki</h2>
 		<br>
         <form action="#" th:action="@{/songs/save}" th:object="${song}" method="post">
             <table>
@@ -17,12 +17,20 @@
                     <td><input type="text" th:field="*{title}"></td>
                 </tr>
                 <tr>
-                    <td>ID wykonawcy</td>
-                    <td><input type="number" th:field="*{performer}" min="1"> </td>
+                	<td>Wykonawca</td>
+                	<td>
+                		<select th:field="*{performer}">
+    						<option th:each="artist : ${artists}" th:value="${artist.id}" th:text="${artist.name}"></option>
+						</select>
+                	</td>
                 </tr>
                 <tr>
-                    <td>ID albumu</td>
-                    <td><input type="number" th:field="*{albumid}" min="1"></td>
+                	<td>Album</td>
+                	<td>
+                		<select th:field="*{album}">
+    						<option th:each="album : ${albums}" th:value="${album.id}" th:text="${album.name}"></option>
+						</select>
+                	</td>
                 </tr>
                 <tr>
                     <td>Długość trwania utworu</td>

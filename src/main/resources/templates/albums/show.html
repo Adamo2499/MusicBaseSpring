@@ -9,7 +9,7 @@
 	<br />
 	<main>
 		<h2>Szczegółowe dane albumu</h2>
-        <form th:action="@{/albums/save}" th:object="${album}" method="post">
+        <form th:action="@{/albums/delete/__${id}__}" th:object="${album}" th:method="delete">
             <table>
                 <tr>
 					<td>ID albumu:</td>
@@ -19,20 +19,12 @@
                     <td>Nazwa albumu: </td>
                     <td> <input type="text" th:field="*{name}" readonly="readonly"> </td>
                 </tr>
-                <!--
-                <tr>
-                    <td> <img th:src="'/images/'+*{coverimage}" /> </td>
-                </tr>
-                -->
                 <tr>
                     <td>Rok wydania</td>
                     <td> <input type="number" th:field="*{publishingyear}" readonly="readonly" /></td>
                 </tr>
             </table>
-            <!--
-                <button type="submit">Zapisz</button>
-            <button type="reset">Wyczyść</button>
-            -->            
+            <button type="submit">Usuń</button>            
         </form>
 	</main>
 	<div th:replace="parts/parts.html :: footer"></div>

@@ -20,16 +20,12 @@
                         <td th:text="${album.name}">Nazwa</td>
                         <td> <img th:src="'/images/'+${album.coverimage}" th:alt="'Zdjęcie albumu '+${album.name}"> </td>
                         <td th:text="${album.publishingyear}"></td>
-                        <td> <a th:href="@{'/MusicBase/albums/edit/' + ${album.id}}">Edytuj</a></td>
-						<td> <a th:href="@{'/MusicBase/albums/delete/' + ${album.id}}">Usuń</a></td>
-                    </tr>
-                    <tr>
-                    	<td colspan="5">
-                    		<a href="/">Powrót na stronę główną</a>
-                    	</td>
+                        <td> <a th:href="@{'/albums/edit/' + ${album.id}}">Edytuj</a></td>
+						<td> <a th:href="@{'/albums/show/' + ${album.id}}">Usuń</a></td>
                     </tr>
                 </tbody>
             </table>
+            <a href="/"><button class="return">Powrót na stronę główną</button></a>
 		</main>
 		<div th:replace="parts/parts.html :: footer"></div><br />
 	</body>

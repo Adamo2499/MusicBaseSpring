@@ -9,10 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import musicbase.models.Album;
+import musicbase.models.Artist;
 import musicbase.models.Song;
+import musicbase.services.AlbumsService;
+import musicbase.services.ArtistService;
 import musicbase.services.SongsService;
 
 @Controller
@@ -20,6 +25,13 @@ public class SongsController {
 	
 	@Autowired
 	private SongsService service;
+	
+	@Autowired
+	private ArtistService artistService;
+	
+	@Autowired
+	private AlbumsService albumsService;
+	
 
 	public SongsController() {
 		super();
@@ -35,6 +47,10 @@ public class SongsController {
 	@GetMapping("/songs/new")
 	public String showFormNewSongs(Model model) {
 		Song newSong = new Song();
+		List<Artist> artistsList = artistService.findAll();
+		List<Album> albumsList = albumsService.findAll();
+		model.addAttribute("artists",artistsList);
+		model.addAttribute("albums",albumsList);
 		model.addAttribute("song", newSong);
 		return "/songs/new";
 	}
@@ -52,7 +68,7 @@ public class SongsController {
 		mav.addObject("song", songToEdit);
 		return mav;
 	}
-	@GetMapping("/songs/delete/{id}")
+	@DeleteMapping("/songs/delete/{id}")
 	public String deleteSongs(@PathVariable(name = "id") Long id) {
 		service.deleteById(id);
 		return "redirect:/songs/list";

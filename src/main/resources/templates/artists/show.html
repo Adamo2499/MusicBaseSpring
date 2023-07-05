@@ -10,7 +10,7 @@
 	<main>
 		<h2>Szczegółowe dane artysty</h2>
 		<br>
-		<form action="#" th:action="@{/artists/save}" th:object="${artist}"
+		<form  th:action="@{/artists/delete/{id}}" th:object="${artist}"
 			method="post">
 			<table>
 				<tr>
@@ -37,7 +37,7 @@
 					<td><input type="url" th:field="*{ofc_website}" readonly="readonly"/></td>
 				</tr>
 			</table>
-			<!--<button type="submit">Zapisz</button>-->
+			<button type="submit">Usuń</button>
 		</form>
 	</main>
 	<div th:replace="parts/parts.html :: footer"></div>

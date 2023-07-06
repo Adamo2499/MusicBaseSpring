@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 	<div th:replace="parts/parts.html :: head"></div><br />
 	<body>
-		<div th:replace="parts/parts.html :: header"></div><br />
-		<div th:replace="parts/parts.html :: nav"></div><br />
+		<div th:replace="parts/parts.html :: header"></div>
+		<div th:replace="parts/parts.html :: nav"></div>
 		<main>
 			<table>
 				<thead>
@@ -20,8 +20,8 @@
 						<td> <a th:href="${'/artists/details/'+song.performer}"><span th:text="${song.performer.name}"></span></a> </td>
 						<td> <a th:href="${'/albums/details/'+song.album}"><span th:text="${song.album.name}"></span></a> </td>
 						<td th:text="${song.duration}"> </td>
-						<td> <a th:href="${'/songs/edit/'+song.album}">Edytuj</a> </td>
-						<td> <a th:href="${'/songs/show/'+song.album}">Usuń</a> </td>
+						<td> <a th:href="${'/songs/edit/'+song.id}">Edytuj</a> </td>
+						<td> <a th:href="${'/songs/show/'+song.id}">Usuń</a> </td>
 					</tr>
 				</tbody>
 			</table>

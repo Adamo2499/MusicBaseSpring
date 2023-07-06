@@ -1,0 +1,42 @@
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/style.css}">
+<title>MusicBase</title>
+</head>
+
+<header>
+	<h2>MusicBase</h2>
+</header>
+
+	<nav>
+		   <ul>
+		        <li class="dropdown"><a href="/">Strona główna</a></li>
+		        <li class="dropdown">
+		            <a href="javascript:void(0)" class="dropbtn">Przegląd muzyki</a>
+		            <div class="dropdown-content">
+		              <a href="/songs/list">Piosenki</a>
+		              <a href="/albums/list">Albumy</a>
+		              <a href="/artists/list">Wykonawcy</a>
+		            </div>
+		          </li>
+		          <li class="dropdown">
+		            <a href="javascript:void(0)" class="dropbtn">Dodawanie muzyki</a>
+		            <div class="dropdown-content">
+		              <a href="/songs/new">Piosenki</a>
+		              <a href="/albums/new">Albumy</a>
+		              <a href="/artists/new">Wykonawcy</a>
+		            </div>
+		          </li>
+		        <li class="dropdown">
+		            <a href="#">Konto</a>
+		            <div class="dropdown-content">
+		            	<a href="/login">Logowanie</a>
+		            	<a href="/register">Rejestracja</a>
+		            </div>
+		        </li>
+		    </ul>
+		</nav>
+
+		<footer>
+			<p>&copy; Adam Bieszk 2023r.
+		</footer>

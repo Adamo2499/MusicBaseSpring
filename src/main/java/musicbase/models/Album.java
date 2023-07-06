@@ -21,30 +21,21 @@ public class Album {
 	private String name;
 
 	@Pattern(regexp = "^.*\\.(jpg|JPG|png|PNG)$", message = "Plik musi być w formacie jpg lub png")
-	private String cover_image;
+	private String coverImage;
 
 	@NotNull
-	private Integer publishing_year;
+	private Integer publishingYear;
 
 	public Album() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCover_image() {
-		return cover_image;
-	}
-
-	public void setCover_image(String cover_image) {
-		this.cover_image = cover_image;
-	}
-
-	public Integer getPublishing_year() {
-		return publishing_year;
-	}
-
-	public void setPublishing_year(Integer publishing_year) {
-		this.publishing_year = publishing_year;
+	public Album(@NotNull Long id, @NotNull String name, String coverImage, @NotNull Integer publishingYear) {
+		this.id = id;
+		this.name = name;
+		this.coverImage = coverImage;
+		this.publishingYear = publishingYear;
 	}
 
 	public Long getId() {
@@ -63,20 +54,19 @@ public class Album {
 		this.name = name;
 	}
 
-	public String getCoverimage() {
-		return cover_image;
+	public String getCoverImage() {
+		return coverImage;
 	}
 
-	public void setCoverimage(String coverimage) {
-		this.cover_image = coverimage;
+	public void setCoverImage(String coverImage) {
+		this.coverImage = coverImage;
 	}
 
-	public Integer getPublishingyear() {
-		return publishing_year;
+	public Integer getPublishingYear() {
+		return publishingYear;
 	}
 
-	public void setPublishingyear(Integer publishingyear) {
-		this.publishing_year = publishingyear;
+	public void setPublishingYear(Integer publishingYear) {
+		this.publishingYear = publishingYear;
 	}
-
 }

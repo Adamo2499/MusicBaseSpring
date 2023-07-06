@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<div th:replace="parts/parts.html :: head"></div>
+<br />
+<body>
+	<div th:replace="parts/parts.html :: header"></div>
+	<br />
+	<div th:replace="parts/parts.html :: nav"></div>
+	<br />
+	<main>
+		<h2>Szczegółowe dane piosenki</h2>
+		<br>
+        <form action="#" th:action="" th:object="${song}" method="post">
+            <table>
+                <tr>
+                    <td>ID piosenki:</td>
+                    <td> <input type="number" th:field="*{song.id}" readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Tytuł</td>
+                    <td><input type="text" th:field="*{song.title}" th:readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>ID wykonawcy</td>
+                    <td><input type="number" th:field="*{song.performer}" min="1" th:readonly="readonly"> </td>
+                </tr>
+                <tr>
+                    <td>ID albumu</td>
+                    <td><input type="number" th:field="*{song.albumid}" min="1" th:readonly="readonly"></td>
+                </tr>
+                <tr>
+                    <td>Długość trwania utworu</td>
+                    <td><input type="text" th:field="*{song.duration}" th:readonly="readonly"></td>
+                </tr>
+            </table>
+        </form>
+        <a href="/"><button class="return">Powrót na stronę główną</button></a>
+	</main>
+	<div th:replace="parts/parts.html :: footer"></div>
+	<br />
+</body>
+</html>

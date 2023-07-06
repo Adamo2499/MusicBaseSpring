@@ -13,18 +13,16 @@
             <table>
                 <tr>
 					<td>ID artysty:</td>
-					<td><input type="number" th:field="*{id}" readonly="readonly" /></td>
+					<td><input type="number" th:field="*{album.id}" readonly="readonly" /></td>
 				</tr>
                 <tr>
                     <td>Nazwa albumu: </td>
-                    <td> <input type="text" th:field="*{name}"> </td>
+                    <td> <input type="text" th:field="*{album.name}"> </td>
                 </tr>
                 <tr>
                     <td>Rok wydania</td>
-                    <td> <input type="number" th:field="*{publishingyear}" /></td>
+                    <td> <input type="number" th:field="*{album.publishingyear}" /></td>
                 </tr>
-                
-                
             </table>
             <button type="submit">Zapisz</button>
             <button type="reset">Wyczyść</button>

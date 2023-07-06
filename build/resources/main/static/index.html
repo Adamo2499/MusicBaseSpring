@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+ <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<title>MusicBase</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header th:replace="parts/parts.html :: header">MusicBase</header><br />
+	<nav>
+		   <ul>
+		        <li class="dropdown"><a href="/MusicBase">Strona główna</a></li>
+		        <li class="dropdown">
+		            <a href="javascript:void(0)" class="dropbtn">Przegląd muzyki</a>
+		            <div class="dropdown-content">
+		              <a href="/songs/list">Piosenki</a>
+		              <a href="/albums/list">Albumy</a>
+		              <a href="/artists/list">Wykonawcy</a>
+		            </div>
+		          </li>
+		          <li class="dropdown">
+		            <a href="javascript:void(0)" class="dropbtn">Dodawanie muzyki</a>
+		            <div class="dropdown-content">
+		              <a href="/songs/new">Piosenki</a>
+		              <a href="/albums/new">Albumy</a>
+		              <a href="/artists/new">Wykonawcy</a>
+		            </div>
+		          </li>
+		        <li class="dropdown">
+		            <a href="#">Konto</a>
+		            <div class="dropdown-content">
+		            	<a href="/login">Logowanie</a>
+		            	<a href="/register">Rejestracja</a>
+		            </div>
+		        </li>
+		    </ul>
+		</nav>
+		<main>
+			<h3>Strona główma</h3>
+			<p>Widaj w MusicBase - serwisie poświęconym zarządzaniu domową biblioteką muzyczną</p>
+		</main>
+		<footer>
+			<p>&copy; Adam Bieszk 2023r. </p>
+		</footer>
+</body>
+</html>

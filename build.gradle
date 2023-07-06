@@ -7,10 +7,16 @@ plugins {
 
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    version =  '1.0'
+}
 
 group = 'ksi'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+targetCompatibility = '17'
 
 repositories {
 	mavenCentral()

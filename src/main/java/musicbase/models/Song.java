@@ -23,16 +23,7 @@ public class Song {
 	@NotNull
 	@Size(min = 3, message = "Tytuł jest za krótki")
 	private String title;
-	
-//	@NotNull
-//	@Positive(message = "Indeks albumu musi być liczbą dodatnią!")
-//	private Integer performer_id;
-//	
-//	@NotNull
-//	@Positive(message = "Indeks albumu musi być liczbą dodatnią!")
-//	private Integer album_id;
-//
-	
+
 	@ManyToOne
 	@JoinColumn(name = "album_id")
 	private Album album;

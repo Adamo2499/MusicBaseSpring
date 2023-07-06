@@ -65,9 +65,38 @@ public class SongsController {
 	public ModelAndView showEditFormSongs(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("/songs/edit");
 		Optional<Song> songToEdit = service.findById(id);
+		List<Artist> artistsList = artistService.findAll();
+		List<Album> albumsList = albumsService.findAll();
 		mav.addObject("song", songToEdit);
+		mav.addObject("artists",artistsList);
+		mav.addObject("albums",albumsList);
 		return mav;
 	}
+
+	@GetMapping("/songs/show/{id}")
+	public ModelAndView showFormSongs(@PathVariable(name = "id") Long id) {
+		ModelAndView mav = new ModelAndView("/songs/show");
+		Optional<Song> songToShow = service.findById(id);
+		List<Artist> artistsList = artistService.findAll();
+		List<Album> albumsList = albumsService.findAll();
+		mav.addObject("song", songToShow);
+		mav.addObject("artists",artistsList);
+		mav.addObject("albums",albumsList);
+		return mav;
+	}
+
+	@GetMapping("/songs/details/{id}")
+	public ModelAndView showSongDetails(@PathVariable(name = "id") Long id) {
+		ModelAndView mav = new ModelAndView("/songs/details");
+		Optional<Song> songDetails = service.findById(id);
+		List<Artist> artistsList = artistService.findAll();
+		List<Album> albumsList = albumsService.findAll();
+		mav.addObject("song", songDetails);
+		mav.addObject("artists",artistsList);
+		mav.addObject("albums",albumsList);
+		return mav;
+	}
+
 	@DeleteMapping("/songs/delete/{id}")
 	public String deleteSongs(@PathVariable(name = "id") Long id) {
 		service.deleteById(id);

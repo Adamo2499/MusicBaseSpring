@@ -29,8 +29,8 @@ public class AlbumsController {
 
 	@GetMapping("/albums/list")
 	public String viewAlbumsList(Model model) {
-		List<Album> lalbums = service.findAll();
-		model.addAttribute("albums", lalbums);
+		List<Album> albumList = service.findAll();
+		model.addAttribute("albums", albumList);
 		return "/albums/list";
 	}
 
@@ -43,7 +43,7 @@ public class AlbumsController {
 
 	@PostMapping(value = "/albums/save")
 	public String saveAlbums(@ModelAttribute("albums") Album Album) {
-		Album.setCoverimage(Album.getName().toLowerCase()+".jpg");
+		Album.setCoverImage(Album.getName().toLowerCase()+".jpg");
 		service.save(Album);
 		return "redirect:/albums/list";
 	}

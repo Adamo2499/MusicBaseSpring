@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <div th:replace="parts/parts.html :: head"></div>
-<br />
 <body>
 	<div th:replace="parts/parts.html :: header"></div>
 	<br />
@@ -14,29 +13,28 @@
             <table>
                 <tr>
                     <td>ID piosenki:</td>
-                    <td> <input type="number" th:field="*{id}" readonly="readonly"></td>
+                    <td> <input type="number" th:field="*{song.id}" readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td>Tytuł</td>
-                    <td><input type="text" th:field="*{title}"></td>
+                    <td><input type="text" th:field="*{song.title}"></td>
                 </tr>
                 <tr>
-                    <td>ID wykonawcy</td>
-                    <td><input type="number" th:field="*{performer_id}" min="1"> </td>
+                    <td>Wykonawca</td>
+                    <td><input type="text" th:field="*{song.performer.name}" th:required="required"> </td>
                 </tr>
                 <tr>
-                    <td>ID albumu</td>
-                    <td><input type="number" th:field="*{album_id}" min="1"></td>
+                    <td>Album</td>
+                    <td><input type="text" th:field="*{song.album.name}" th:required="required"></td>
                 </tr>
                 <tr>
                     <td>Długość trwania utworu</td>
-                    <td><input type="text" th:field="*{duration}"></td>
+                    <td><input type="text" th:field="*{song.duration}"></td>
                 </tr>
             </table>
             <button type="submit">Zapisz</button>
         </form>
 	</main>
 	<div th:replace="parts/parts.html :: footer"></div>
-	<br />
 </body>
 </html>
